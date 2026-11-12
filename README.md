@@ -1,12 +1,13 @@
 # GridOps — OT / critical-infrastructure CTF
 
-A 
+A CTF challenge for the HSLU CTF group.
 
 GridOps is the asset portal of a regional electricity grid operator: substations,
 RTUs and PLCs, all on one tidy map, run by a company that is *very* confident its
 operations are airtight.
 
-> About-page motto: **"Zero trust. Zero downtime. Zero incidents reported."**
+> About-page motto: **"Zero trust. Zero downtime. Zero incidents reported."**  
+> 
 > Your job is to put an asterisk on at least one of those.
 
 Everything runs locally — no internet access needed.
