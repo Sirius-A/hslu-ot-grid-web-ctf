@@ -1,0 +1,128 @@
+@use '@siemens/element-theme/src/theme';
+@use 'siemens-theme';
+
+html,
+body {
+  block-size: 100%;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------- application */
+
+.application-name {
+  color: var(--element-text-primary);
+}
+
+si-footer {
+  display: block;
+  margin-block-start: 24px;
+}
+
+/* ----------------------------------------------------------------- maps */
+
+.map-surface {
+  block-size: 100%;
+  inline-size: 100%;
+  border-radius: var(--element-radius-2);
+  overflow: hidden;
+}
+
+.map-surface si-map {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.map-frame {
+  block-size: 460px;
+}
+
+.map-frame-lg {
+  block-size: 58vh;
+  min-block-size: 420px;
+}
+
+/* ------------------------------------------------------------- details */
+
+.kv-grid {
+  display: grid;
+  grid-template-columns: minmax(140px, max-content) 1fr;
+  gap: 6px 20px;
+  margin-block-end: 0;
+}
+
+.kv-grid dt {
+  color: var(--element-text-secondary);
+  font-weight: 400;
+}
+
+.kv-grid dd {
+  margin: 0;
+}
+
+.flag-box {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  background: var(--element-base-0);
+  border: 1px solid var(--element-ui-4);
+  border-radius: var(--element-radius-1);
+  padding: 12px 16px;
+  word-break: break-all;
+}
+
+/* ------------------------------------------------------- product branding */
+
+/*
+ * The stock Element theme ships a "YOUR LOGO" placeholder. Replace it with the
+ * GridOps wordmark: a petrol pylon glyph plus the product name in the current
+ * text color, so it works in both the light and the dark color scheme.
+ */
+%brand-wordmark {
+  content: normal;
+  inline-size: auto;
+  min-inline-size: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23009999' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4.5 21 L9 3.5'/%3E%3Cpath d='M19.5 21 L15 3.5'/%3E%3Cpath d='M9 3.5 L15 3.5'/%3E%3Cpath d='M7.3 11 L16.7 11'/%3E%3Cpath d='M6 16 L18 16'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 20px 20px;
+  padding-inline-start: 32px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 22px;
+  white-space: nowrap;
+  color: var(--element-text-primary);
+  text-decoration: none;
+
+  &::after {
+    content: 'GridOps';
+  }
+}
+
+/* Brighter mark on the deep blue background. */
+:root.app--dark .header-logo,
+:root.app--dark .landing-page-logo {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%2300cccc' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4.5 21 L9 3.5'/%3E%3Cpath d='M19.5 21 L15 3.5'/%3E%3Cpath d='M9 3.5 L15 3.5'/%3E%3Cpath d='M7.3 11 L16.7 11'/%3E%3Cpath d='M6 16 L18 16'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.header-logo {
+  @extend %brand-wordmark;
+
+  min-block-size: 22px;
+}
+
+.landing-page-logo {
+  @extend %brand-wordmark;
+
+  display: inline-flex;
+  align-items: center;
+  block-size: 24px;
+  /* si-landing-page sets the logo through its own component stylesheet, which
+     is injected after the global styles -- hence the override. */
+  content: normal !important; /* stylelint-disable-line declaration-no-important */
+  inline-size: auto !important; /* stylelint-disable-line declaration-no-important */
+}
+
+/* The application name sits next to the wordmark. */
+.application-name {
+  color: var(--element-text-secondary);
+  font-weight: 400;
+}

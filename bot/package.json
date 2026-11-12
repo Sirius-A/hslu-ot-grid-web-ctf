@@ -1,0 +1,11 @@
+{
+  "name": "gridops-review-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "bot.js",
+  "scripts": { "start": "node bot.js" },
+  "dependencies": {
+    "puppeteer-core": "24.10.2"
+  }
+}

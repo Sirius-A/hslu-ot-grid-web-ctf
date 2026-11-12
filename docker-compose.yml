@@ -1,30 +1,15 @@
-# GridOps OT CTF -- run kit.
-#
-# Runs the whole challenge from prebuilt images; no source code required.
-#
-#   docker compose pull
-#   docker compose up -d
-#   # open http://localhost:8100
-#
-# Images default to ghcr.io/sirius-a/hslu-ot-grid-web-ctf. Override the
-# namespace, tag or host ports with an .env file next to this compose (see
-# .env.example) or shell variables. If the images are private, run
-# `docker login ghcr.io` first.
-#
-# The flags live inside the images -- do NOT add FLAG/FLAG2 here. The remaining
-# values are not secret; leave them as-is unless told otherwise.
-
 services:
   web:
-    image: ${REGISTRY:-ghcr.io/sirius-a/hslu-ot-grid-web-ctf}/web:${VERSION:-1.0}
+    build: ./web
+    image: hslu-ot-ctf/web
     restart: unless-stopped
     ports:
       - "${WEB_PORT:-8100}:3000"
     environment:
+      FLAG: "${FLAG}"
       ADMIN_USER: "${ADMIN_USER:-ot.supervisor}"
-      # Left blank on purpose: the portal generates a random supervisor password
-      # per deployment and hands it to the bot over the shared volume below, so
-      # it never appears in this file. Pin a value here only for debugging.
+      # Blank -> randomised per deployment and handed to the bot via the shared
+      # volume below. Set ADMIN_PASSWORD in .env to pin it for development.
       ADMIN_PASSWORD: "${ADMIN_PASSWORD:-}"
       BOT_TOKEN: "${BOT_TOKEN:-4f1c0a9d2b8e47d6}"
       MAX_LABEL_LENGTH: "${MAX_LABEL_LENGTH:--1}"
@@ -32,22 +17,27 @@ services:
       SESSION_TTL_MINUTES: "${SESSION_TTL_MINUTES:-30}"
       COLLECTOR_HINT: "http://collector:8080"
       COLLECTOR_PUBLIC: "http://localhost:${COLLECTOR_PORT:-8200}"
-      STAGE2_ENABLED: "true"
+      STAGE2_ENABLED: "${STAGE2_ENABLED:-true}"
       SCADA_URL: "http://localhost:${SCADA_PORT:-8300}"
       SCADA_INTERNAL_URL: "http://scada-gate:8080"
-      SCADA_USER: "admin"
     volumes:
       - gridops_secret:/handshake
 
   scada:
-    image: ${REGISTRY:-ghcr.io/sirius-a/hslu-ot-grid-web-ctf}/scada:${VERSION:-1.0}
+    build: ./scada
+    image: hslu-ot-ctf/scada
     restart: unless-stopped
-    # No host port: the dispatch console is reachable only through scada-gate.
+    # No host port: the dispatch console is reachable only through scada-gate,
+    # which requires a supervisor session. FUXA's operator account is the stock
+    # default baked into the image; the challenge does not need it.
     expose:
       - "1881"
+    environment:
+      FLAG2: "${FLAG2}"
 
   scada-gate:
-    image: ${REGISTRY:-ghcr.io/sirius-a/hslu-ot-grid-web-ctf}/scada-gate:${VERSION:-1.0}
+    build: ./scada-gate
+    image: hslu-ot-ctf/scada-gate
     restart: unless-stopped
     depends_on:
       - web
@@ -60,12 +50,15 @@ services:
       PORTAL_PUBLIC_URL: "http://localhost:${WEB_PORT:-8100}"
 
   bot:
-    image: ${REGISTRY:-ghcr.io/sirius-a/hslu-ot-grid-web-ctf}/bot:${VERSION:-1.0}
+    build: ./bot
+    image: hslu-ot-ctf/bot
     restart: unless-stopped
     depends_on:
       - web
-    # Public resolver so the review bot can reach a chosen out-of-band host.
-    # The bundled collector works without this.
+    # Public resolver so the supervisor bot can reach a student-chosen
+    # out-of-band host (e.g. an interactsh / *.oast.fun collaborator). The lab's
+    # default resolver returns NXDOMAIN for those. The bundled collector
+    # (http://collector:8080) works without this, on the internal Docker network.
     dns:
       - 1.1.1.1
       - 8.8.8.8
@@ -73,19 +66,23 @@ services:
       WEB_URL: "http://web:3000"
       BOT_TOKEN: "${BOT_TOKEN:-4f1c0a9d2b8e47d6}"
       ADMIN_USER: "${ADMIN_USER:-ot.supervisor}"
-      # No ADMIN_PASSWORD: the bot reads the per-deployment password from the
-      # shared volume the portal writes.
+      # No ADMIN_PASSWORD: read from the shared volume the portal writes (or set
+      # it in .env to pin it for development).
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD:-}"
       PAGE_DWELL_MS: "${PAGE_DWELL_MS:-6000}"
     volumes:
       - gridops_secret:/handshake:ro
 
   collector:
-    image: ${REGISTRY:-ghcr.io/sirius-a/hslu-ot-grid-web-ctf}/collector:${VERSION:-1.0}
+    build: ./collector
+    image: hslu-ot-ctf/collector
     restart: unless-stopped
     ports:
       - "${COLLECTOR_PORT:-8200}:8080"
     networks:
       default:
+        # Short alias so a length-constrained payload (MAX_LABEL_LENGTH=50)
+        # still fits: http://c:8080/
         aliases:
           - c
 

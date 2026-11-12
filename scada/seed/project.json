@@ -1,0 +1,725 @@
+{
+ "version": "1.03",
+ "name": "gridops-dispatch",
+ "server": {
+  "id": "0",
+  "name": "FUXA Server",
+  "type": "FuxaServer",
+  "property": {},
+  "enabled": true,
+  "polling": 1000,
+  "tags": {
+   "GRID_FREQ_HZ": {
+    "id": "GRID_FREQ_HZ",
+    "name": "GRID_FREQ_HZ",
+    "type": "number",
+    "address": "GRID_FREQ_HZ",
+    "init": "50.01",
+    "value": 50.01
+   },
+   "BUS_A_KV": {
+    "id": "BUS_A_KV",
+    "name": "BUS_A_KV",
+    "type": "number",
+    "address": "BUS_A_KV",
+    "init": "110.4",
+    "value": 110.4
+   },
+   "BUS_B_KV": {
+    "id": "BUS_B_KV",
+    "name": "BUS_B_KV",
+    "type": "number",
+    "address": "BUS_B_KV",
+    "init": "16.2",
+    "value": 16.2
+   },
+   "T1_LOAD_MW": {
+    "id": "T1_LOAD_MW",
+    "name": "T1_LOAD_MW",
+    "type": "number",
+    "address": "T1_LOAD_MW",
+    "init": "28.4",
+    "value": 28.4
+   },
+   "T2_LOAD_MW": {
+    "id": "T2_LOAD_MW",
+    "name": "T2_LOAD_MW",
+    "type": "number",
+    "address": "T2_LOAD_MW",
+    "init": "22.1",
+    "value": 22.1
+   },
+   "FEEDER_01_A": {
+    "id": "FEEDER_01_A",
+    "name": "FEEDER_01_A",
+    "type": "number",
+    "address": "FEEDER_01_A",
+    "init": "312.0",
+    "value": 312.0
+   },
+   "FEEDER_02_A": {
+    "id": "FEEDER_02_A",
+    "name": "FEEDER_02_A",
+    "type": "number",
+    "address": "FEEDER_02_A",
+    "init": "268.0",
+    "value": 268.0
+   },
+   "FEEDER_03_A": {
+    "id": "FEEDER_03_A",
+    "name": "FEEDER_03_A",
+    "type": "number",
+    "address": "FEEDER_03_A",
+    "init": "141.0",
+    "value": 141.0
+   },
+   "FEEDER_04_A": {
+    "id": "FEEDER_04_A",
+    "name": "FEEDER_04_A",
+    "type": "number",
+    "address": "FEEDER_04_A",
+    "init": "2.0",
+    "value": 2.0
+   },
+   "INTERTIE_MW": {
+    "id": "INTERTIE_MW",
+    "name": "INTERTIE_MW",
+    "type": "number",
+    "address": "INTERTIE_MW",
+    "init": "-14.6",
+    "value": -14.6
+   },
+   "RESERVE_MW": {
+    "id": "RESERVE_MW",
+    "name": "RESERVE_MW",
+    "type": "number",
+    "address": "RESERVE_MW",
+    "init": "41.0",
+    "value": 41.0
+   },
+   "ALARMS_ACTIVE": {
+    "id": "ALARMS_ACTIVE",
+    "name": "ALARMS_ACTIVE",
+    "type": "number",
+    "address": "ALARMS_ACTIVE",
+    "init": "2",
+    "value": 2
+   },
+   "CB_101_STATE": {
+    "id": "CB_101_STATE",
+    "name": "CB_101_STATE",
+    "type": "string",
+    "address": "CB_101_STATE",
+    "init": "CLOSED",
+    "value": "CLOSED"
+   },
+   "CB_102_STATE": {
+    "id": "CB_102_STATE",
+    "name": "CB_102_STATE",
+    "type": "string",
+    "address": "CB_102_STATE",
+    "init": "CLOSED",
+    "value": "CLOSED"
+   },
+   "CB_201_STATE": {
+    "id": "CB_201_STATE",
+    "name": "CB_201_STATE",
+    "type": "string",
+    "address": "CB_201_STATE",
+    "init": "CLOSED",
+    "value": "CLOSED"
+   },
+   "CB_204_STATE": {
+    "id": "CB_204_STATE",
+    "name": "CB_204_STATE",
+    "type": "string",
+    "address": "CB_204_STATE",
+    "init": "OPEN",
+    "value": "OPEN"
+   },
+   "DISPATCH_MODE": {
+    "id": "DISPATCH_MODE",
+    "name": "DISPATCH_MODE",
+    "type": "string",
+    "address": "DISPATCH_MODE",
+    "init": "AUTOMATIC",
+    "value": "AUTOMATIC"
+   }
+  }
+ },
+ "devices": {
+  "FUXA Server": {
+   "id": "0",
+   "name": "FUXA Server",
+   "type": "FuxaServer",
+   "property": {},
+   "enabled": true,
+   "polling": 1000,
+   "tags": {
+    "GRID_FREQ_HZ": {
+     "id": "GRID_FREQ_HZ",
+     "name": "GRID_FREQ_HZ",
+     "type": "number",
+     "address": "GRID_FREQ_HZ",
+     "init": "50.01",
+     "value": 50.01
+    },
+    "BUS_A_KV": {
+     "id": "BUS_A_KV",
+     "name": "BUS_A_KV",
+     "type": "number",
+     "address": "BUS_A_KV",
+     "init": "110.4",
+     "value": 110.4
+    },
+    "BUS_B_KV": {
+     "id": "BUS_B_KV",
+     "name": "BUS_B_KV",
+     "type": "number",
+     "address": "BUS_B_KV",
+     "init": "16.2",
+     "value": 16.2
+    },
+    "T1_LOAD_MW": {
+     "id": "T1_LOAD_MW",
+     "name": "T1_LOAD_MW",
+     "type": "number",
+     "address": "T1_LOAD_MW",
+     "init": "28.4",
+     "value": 28.4
+    },
+    "T2_LOAD_MW": {
+     "id": "T2_LOAD_MW",
+     "name": "T2_LOAD_MW",
+     "type": "number",
+     "address": "T2_LOAD_MW",
+     "init": "22.1",
+     "value": 22.1
+    },
+    "FEEDER_01_A": {
+     "id": "FEEDER_01_A",
+     "name": "FEEDER_01_A",
+     "type": "number",
+     "address": "FEEDER_01_A",
+     "init": "312.0",
+     "value": 312.0
+    },
+    "FEEDER_02_A": {
+     "id": "FEEDER_02_A",
+     "name": "FEEDER_02_A",
+     "type": "number",
+     "address": "FEEDER_02_A",
+     "init": "268.0",
+     "value": 268.0
+    },
+    "FEEDER_03_A": {
+     "id": "FEEDER_03_A",
+     "name": "FEEDER_03_A",
+     "type": "number",
+     "address": "FEEDER_03_A",
+     "init": "141.0",
+     "value": 141.0
+    },
+    "FEEDER_04_A": {
+     "id": "FEEDER_04_A",
+     "name": "FEEDER_04_A",
+     "type": "number",
+     "address": "FEEDER_04_A",
+     "init": "2.0",
+     "value": 2.0
+    },
+    "INTERTIE_MW": {
+     "id": "INTERTIE_MW",
+     "name": "INTERTIE_MW",
+     "type": "number",
+     "address": "INTERTIE_MW",
+     "init": "-14.6",
+     "value": -14.6
+    },
+    "RESERVE_MW": {
+     "id": "RESERVE_MW",
+     "name": "RESERVE_MW",
+     "type": "number",
+     "address": "RESERVE_MW",
+     "init": "41.0",
+     "value": 41.0
+    },
+    "ALARMS_ACTIVE": {
+     "id": "ALARMS_ACTIVE",
+     "name": "ALARMS_ACTIVE",
+     "type": "number",
+     "address": "ALARMS_ACTIVE",
+     "init": "2",
+     "value": 2
+    },
+    "CB_101_STATE": {
+     "id": "CB_101_STATE",
+     "name": "CB_101_STATE",
+     "type": "string",
+     "address": "CB_101_STATE",
+     "init": "CLOSED",
+     "value": "CLOSED"
+    },
+    "CB_102_STATE": {
+     "id": "CB_102_STATE",
+     "name": "CB_102_STATE",
+     "type": "string",
+     "address": "CB_102_STATE",
+     "init": "CLOSED",
+     "value": "CLOSED"
+    },
+    "CB_201_STATE": {
+     "id": "CB_201_STATE",
+     "name": "CB_201_STATE",
+     "type": "string",
+     "address": "CB_201_STATE",
+     "init": "CLOSED",
+     "value": "CLOSED"
+    },
+    "CB_204_STATE": {
+     "id": "CB_204_STATE",
+     "name": "CB_204_STATE",
+     "type": "string",
+     "address": "CB_204_STATE",
+     "init": "OPEN",
+     "value": "OPEN"
+    },
+    "DISPATCH_MODE": {
+     "id": "DISPATCH_MODE",
+     "name": "DISPATCH_MODE",
+     "type": "string",
+     "address": "DISPATCH_MODE",
+     "init": "AUTOMATIC",
+     "value": "AUTOMATIC"
+    }
+   }
+  }
+ },
+ "hmi": {
+  "views": [
+   {
+    "id": "v_gridops_dispatch",
+    "name": "LoadDispatch",
+    "profile": {
+     "width": 1280,
+     "height": 760,
+     "bkcolor": "#001026ff"
+    },
+    "items": {
+     "VAL_gridops_001": {
+      "id": "VAL_gridops_001",
+      "type": "svg-ext-value",
+      "name": "BUS_A_KV",
+      "property": {
+       "events": [],
+       "variable": "BUS_A_KV",
+       "variableId": "BUS_A_KV",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": [
+        {
+         "type": "unit",
+         "min": -1000000,
+         "max": 1000000,
+         "text": " kV"
+        }
+       ]
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_002": {
+      "id": "VAL_gridops_002",
+      "type": "svg-ext-value",
+      "name": "T1_LOAD_MW",
+      "property": {
+       "events": [],
+       "variable": "T1_LOAD_MW",
+       "variableId": "T1_LOAD_MW",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": [
+        {
+         "type": "unit",
+         "min": -1000000,
+         "max": 1000000,
+         "text": " MW"
+        }
+       ]
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_003": {
+      "id": "VAL_gridops_003",
+      "type": "svg-ext-value",
+      "name": "T2_LOAD_MW",
+      "property": {
+       "events": [],
+       "variable": "T2_LOAD_MW",
+       "variableId": "T2_LOAD_MW",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": [
+        {
+         "type": "unit",
+         "min": -1000000,
+         "max": 1000000,
+         "text": " MW"
+        }
+       ]
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_004": {
+      "id": "VAL_gridops_004",
+      "type": "svg-ext-value",
+      "name": "BUS_B_KV",
+      "property": {
+       "events": [],
+       "variable": "BUS_B_KV",
+       "variableId": "BUS_B_KV",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": [
+        {
+         "type": "unit",
+         "min": -1000000,
+         "max": 1000000,
+         "text": " kV"
+        }
+       ]
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_005": {
+      "id": "VAL_gridops_005",
+      "type": "svg-ext-value",
+      "name": "FEEDER_01_A",
+      "property": {
+       "events": [],
+       "variable": "FEEDER_01_A",
+       "variableId": "FEEDER_01_A",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": [
+        {
+         "type": "unit",
+         "min": -1000000,
+         "max": 1000000,
+         "text": " A"
+        }
+       ]
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_006": {
+      "id": "VAL_gridops_006",
+      "type": "svg-ext-value",
+      "name": "CB_101_STATE",
+      "property": {
+       "events": [],
+       "variable": "CB_101_STATE",
+       "variableId": "CB_101_STATE",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": []
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_007": {
+      "id": "VAL_gridops_007",
+      "type": "svg-ext-value",
+      "name": "FEEDER_02_A",
+      "property": {
+       "events": [],
+       "variable": "FEEDER_02_A",
+       "variableId": "FEEDER_02_A",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": [
+        {
+         "type": "unit",
+         "min": -1000000,
+         "max": 1000000,
+         "text": " A"
+        }
+       ]
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_008": {
+      "id": "VAL_gridops_008",
+      "type": "svg-ext-value",
+      "name": "CB_102_STATE",
+      "property": {
+       "events": [],
+       "variable": "CB_102_STATE",
+       "variableId": "CB_102_STATE",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": []
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_009": {
+      "id": "VAL_gridops_009",
+      "type": "svg-ext-value",
+      "name": "FEEDER_03_A",
+      "property": {
+       "events": [],
+       "variable": "FEEDER_03_A",
+       "variableId": "FEEDER_03_A",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": [
+        {
+         "type": "unit",
+         "min": -1000000,
+         "max": 1000000,
+         "text": " A"
+        }
+       ]
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_010": {
+      "id": "VAL_gridops_010",
+      "type": "svg-ext-value",
+      "name": "CB_201_STATE",
+      "property": {
+       "events": [],
+       "variable": "CB_201_STATE",
+       "variableId": "CB_201_STATE",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": []
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_011": {
+      "id": "VAL_gridops_011",
+      "type": "svg-ext-value",
+      "name": "FEEDER_04_A",
+      "property": {
+       "events": [],
+       "variable": "FEEDER_04_A",
+       "variableId": "FEEDER_04_A",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": [
+        {
+         "type": "unit",
+         "min": -1000000,
+         "max": 1000000,
+         "text": " A"
+        }
+       ]
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_012": {
+      "id": "VAL_gridops_012",
+      "type": "svg-ext-value",
+      "name": "CB_204_STATE",
+      "property": {
+       "events": [],
+       "variable": "CB_204_STATE",
+       "variableId": "CB_204_STATE",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": []
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_013": {
+      "id": "VAL_gridops_013",
+      "type": "svg-ext-value",
+      "name": "GRID_FREQ_HZ",
+      "property": {
+       "events": [],
+       "variable": "GRID_FREQ_HZ",
+       "variableId": "GRID_FREQ_HZ",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": [
+        {
+         "type": "unit",
+         "min": -1000000,
+         "max": 1000000,
+         "text": " Hz"
+        }
+       ]
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_014": {
+      "id": "VAL_gridops_014",
+      "type": "svg-ext-value",
+      "name": "INTERTIE_MW",
+      "property": {
+       "events": [],
+       "variable": "INTERTIE_MW",
+       "variableId": "INTERTIE_MW",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": [
+        {
+         "type": "unit",
+         "min": -1000000,
+         "max": 1000000,
+         "text": " MW"
+        }
+       ]
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_015": {
+      "id": "VAL_gridops_015",
+      "type": "svg-ext-value",
+      "name": "RESERVE_MW",
+      "property": {
+       "events": [],
+       "variable": "RESERVE_MW",
+       "variableId": "RESERVE_MW",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": [
+        {
+         "type": "unit",
+         "min": -1000000,
+         "max": 1000000,
+         "text": " MW"
+        }
+       ]
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_016": {
+      "id": "VAL_gridops_016",
+      "type": "svg-ext-value",
+      "name": "ALARMS_ACTIVE",
+      "property": {
+       "events": [],
+       "variable": "ALARMS_ACTIVE",
+       "variableId": "ALARMS_ACTIVE",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": []
+      },
+      "label": "Value"
+     },
+     "VAL_gridops_017": {
+      "id": "VAL_gridops_017",
+      "type": "svg-ext-value",
+      "name": "DISPATCH_MODE",
+      "property": {
+       "events": [],
+       "variable": "DISPATCH_MODE",
+       "variableId": "DISPATCH_MODE",
+       "variableSrc": "FUXA Server",
+       "alarmId": "",
+       "alarmSrc": "",
+       "alarm": "",
+       "alarmColor": "",
+       "ranges": []
+      },
+      "label": "Value"
+     }
+    },
+    "variables": [],
+    "svgcontent": "<svg width=\"1280\" height=\"760\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:html=\"http://www.w3.org/1999/xhtml\"><g><title>Layer 1</title><rect x=\"0\" y=\"0\" width=\"1280\" height=\"760\" fill=\"#001026ff\"/><rect x=\"0\" y=\"0\" width=\"1280\" height=\"54\" fill=\"#00182eff\"/><line x1=\"0\" y1=\"54\" x2=\"1280\" y2=\"54\" stroke=\"#00a3ab\" stroke-width=\"2\"/><text x=\"28\" y=\"34\" font-family=\"sans-serif\" font-size=\"20\" fill=\"#e8e8f0\" text-anchor=\"start\" font-weight=\"bold\" xml:space=\"preserve\">REGIONAL LOAD DISPATCH CENTRE</text><text x=\"470\" y=\"34\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">GridOps North  &#183;  UW Rotkreuz 110/16 kV</text><text x=\"1252\" y=\"34\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#00a3ab\" text-anchor=\"end\" font-weight=\"normal\" xml:space=\"preserve\">SCADA / HMI</text><text x=\"90\" y=\"92\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">INFEED 220 kV / NETZ NORD</text><line x1=\"200\" y1=\"100\" x2=\"200\" y2=\"136\" stroke=\"#00a3ab\" stroke-width=\"3\"/><line x1=\"880\" y1=\"100\" x2=\"880\" y2=\"136\" stroke=\"#00a3ab\" stroke-width=\"3\"/><rect x=\"90\" y=\"136\" width=\"980\" height=\"9\" fill=\"#00a3ab\"/><text x=\"90\" y=\"128\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8e8f0\" text-anchor=\"start\" font-weight=\"bold\" xml:space=\"preserve\">BUSBAR A &#8212; 110 kV</text><g id=\"VAL_gridops_001\" type=\"svg-ext-value\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"15\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_001\" x=\"330\" y=\"128\" font-family=\"sans-serif\" font-size=\"15\" fill=\"#00cccc\" font-weight=\"bold\" text-anchor=\"start\" xml:space=\"preserve\">##.##</text></g><text x=\"395\" y=\"128\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">kV</text><line x1=\"330\" y1=\"145\" x2=\"330\" y2=\"196\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><circle cx=\"330\" cy=\"214\" r=\"20\" fill=\"none\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><circle cx=\"330\" cy=\"238\" r=\"20\" fill=\"none\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><line x1=\"330\" y1=\"258\" x2=\"330\" y2=\"306\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><text x=\"362\" y=\"214\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">T1  40 MVA</text><g id=\"VAL_gridops_002\" type=\"svg-ext-value\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"15\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_002\" x=\"362\" y=\"236\" font-family=\"sans-serif\" font-size=\"15\" fill=\"#00cccc\" font-weight=\"bold\" text-anchor=\"start\" xml:space=\"preserve\">##.##</text></g><text x=\"422\" y=\"236\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">MW</text><line x1=\"700\" y1=\"145\" x2=\"700\" y2=\"196\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><circle cx=\"700\" cy=\"214\" r=\"20\" fill=\"none\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><circle cx=\"700\" cy=\"238\" r=\"20\" fill=\"none\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><line x1=\"700\" y1=\"258\" x2=\"700\" y2=\"306\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><text x=\"732\" y=\"214\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">T2  40 MVA</text><g id=\"VAL_gridops_003\" type=\"svg-ext-value\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"15\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_003\" x=\"732\" y=\"236\" font-family=\"sans-serif\" font-size=\"15\" fill=\"#00cccc\" font-weight=\"bold\" text-anchor=\"start\" xml:space=\"preserve\">##.##</text></g><text x=\"792\" y=\"236\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">MW</text><rect x=\"90\" y=\"306\" width=\"980\" height=\"9\" fill=\"#00a3ab\"/><text x=\"90\" y=\"298\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8e8f0\" text-anchor=\"start\" font-weight=\"bold\" xml:space=\"preserve\">BUSBAR B &#8212; 16 kV</text><g id=\"VAL_gridops_004\" type=\"svg-ext-value\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"15\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_004\" x=\"320\" y=\"298\" font-family=\"sans-serif\" font-size=\"15\" fill=\"#00cccc\" font-weight=\"bold\" text-anchor=\"start\" xml:space=\"preserve\">##.##</text></g><text x=\"380\" y=\"298\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">kV</text><line x1=\"180\" y1=\"315\" x2=\"180\" y2=\"372\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><rect x=\"167\" y=\"372\" width=\"26\" height=\"26\" fill=\"#00182eff\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><line x1=\"180\" y1=\"398\" x2=\"180\" y2=\"452\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><line x1=\"164\" y1=\"452\" x2=\"196\" y2=\"452\" stroke=\"#e8e8f0\" stroke-width=\"3\"/><text x=\"180\" y=\"486\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"middle\" font-weight=\"normal\" xml:space=\"preserve\">ABGANG 01  Rotkreuz Dorf</text><g id=\"VAL_gridops_005\" type=\"svg-ext-value\" text-anchor=\"end\" font-family=\"sans-serif\" font-size=\"13\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_005\" x=\"174\" y=\"428\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8e8f0\" font-weight=\"bold\" text-anchor=\"end\" xml:space=\"preserve\">##.##</text></g><text x=\"181\" y=\"428\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">A</text><g id=\"VAL_gridops_006\" type=\"svg-ext-value\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_006\" x=\"180\" y=\"512\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#00ffb9\" font-weight=\"normal\" text-anchor=\"middle\" xml:space=\"preserve\">##.##</text></g><line x1=\"400\" y1=\"315\" x2=\"400\" y2=\"372\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><rect x=\"387\" y=\"372\" width=\"26\" height=\"26\" fill=\"#00182eff\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><line x1=\"400\" y1=\"398\" x2=\"400\" y2=\"452\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><line x1=\"384\" y1=\"452\" x2=\"416\" y2=\"452\" stroke=\"#e8e8f0\" stroke-width=\"3\"/><text x=\"400\" y=\"486\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"middle\" font-weight=\"normal\" xml:space=\"preserve\">ABGANG 02  Industrie Ost</text><g id=\"VAL_gridops_007\" type=\"svg-ext-value\" text-anchor=\"end\" font-family=\"sans-serif\" font-size=\"13\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_007\" x=\"394\" y=\"428\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8e8f0\" font-weight=\"bold\" text-anchor=\"end\" xml:space=\"preserve\">##.##</text></g><text x=\"401\" y=\"428\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">A</text><g id=\"VAL_gridops_008\" type=\"svg-ext-value\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_008\" x=\"400\" y=\"512\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#00ffb9\" font-weight=\"normal\" text-anchor=\"middle\" xml:space=\"preserve\">##.##</text></g><line x1=\"620\" y1=\"315\" x2=\"620\" y2=\"372\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><rect x=\"607\" y=\"372\" width=\"26\" height=\"26\" fill=\"#00182eff\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><line x1=\"620\" y1=\"398\" x2=\"620\" y2=\"452\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><line x1=\"604\" y1=\"452\" x2=\"636\" y2=\"452\" stroke=\"#e8e8f0\" stroke-width=\"3\"/><text x=\"620\" y=\"486\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"middle\" font-weight=\"normal\" xml:space=\"preserve\">ABGANG 03  Pumpwerk Seetal</text><g id=\"VAL_gridops_009\" type=\"svg-ext-value\" text-anchor=\"end\" font-family=\"sans-serif\" font-size=\"13\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_009\" x=\"614\" y=\"428\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8e8f0\" font-weight=\"bold\" text-anchor=\"end\" xml:space=\"preserve\">##.##</text></g><text x=\"621\" y=\"428\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">A</text><g id=\"VAL_gridops_010\" type=\"svg-ext-value\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_010\" x=\"620\" y=\"512\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#00ffb9\" font-weight=\"normal\" text-anchor=\"middle\" xml:space=\"preserve\">##.##</text></g><line x1=\"840\" y1=\"315\" x2=\"840\" y2=\"372\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><rect x=\"827\" y=\"372\" width=\"26\" height=\"26\" fill=\"#00182eff\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><line x1=\"840\" y1=\"398\" x2=\"840\" y2=\"452\" stroke=\"#e8e8f0\" stroke-width=\"2\"/><line x1=\"824\" y1=\"452\" x2=\"856\" y2=\"452\" stroke=\"#e8e8f0\" stroke-width=\"3\"/><text x=\"840\" y=\"486\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"middle\" font-weight=\"normal\" xml:space=\"preserve\">ABGANG 04  Reserve</text><g id=\"VAL_gridops_011\" type=\"svg-ext-value\" text-anchor=\"end\" font-family=\"sans-serif\" font-size=\"13\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_011\" x=\"834\" y=\"428\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8e8f0\" font-weight=\"bold\" text-anchor=\"end\" xml:space=\"preserve\">##.##</text></g><text x=\"841\" y=\"428\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">A</text><g id=\"VAL_gridops_012\" type=\"svg-ext-value\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"12\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_012\" x=\"840\" y=\"512\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#00ffb9\" font-weight=\"normal\" text-anchor=\"middle\" xml:space=\"preserve\">##.##</text></g><rect x=\"1080\" y=\"90\" width=\"180\" height=\"420\" fill=\"#00182eff\" stroke=\"#1d3a5a\" stroke-width=\"1\" rx=\"4\"/><text x=\"1098\" y=\"118\" font-family=\"sans-serif\" font-size=\"12\" fill=\"#00a3ab\" text-anchor=\"start\" font-weight=\"bold\" xml:space=\"preserve\">SYSTEM</text><text x=\"1098\" y=\"158\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">Frequenz [Hz]</text><g id=\"VAL_gridops_013\" type=\"svg-ext-value\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"17\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_013\" x=\"1098\" y=\"182\" font-family=\"sans-serif\" font-size=\"17\" fill=\"#00cccc\" font-weight=\"bold\" text-anchor=\"start\" xml:space=\"preserve\">##.##</text></g><text x=\"1098\" y=\"212\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">Kuppelleistung [MW]</text><g id=\"VAL_gridops_014\" type=\"svg-ext-value\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"17\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_014\" x=\"1098\" y=\"236\" font-family=\"sans-serif\" font-size=\"17\" fill=\"#00cccc\" font-weight=\"bold\" text-anchor=\"start\" xml:space=\"preserve\">##.##</text></g><text x=\"1098\" y=\"266\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">Regelreserve [MW]</text><g id=\"VAL_gridops_015\" type=\"svg-ext-value\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"17\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_015\" x=\"1098\" y=\"290\" font-family=\"sans-serif\" font-size=\"17\" fill=\"#00ffb9\" font-weight=\"bold\" text-anchor=\"start\" xml:space=\"preserve\">##.##</text></g><text x=\"1098\" y=\"320\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">Aktive Alarme</text><g id=\"VAL_gridops_016\" type=\"svg-ext-value\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"17\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_016\" x=\"1098\" y=\"344\" font-family=\"sans-serif\" font-size=\"17\" fill=\"#ffd732\" font-weight=\"bold\" text-anchor=\"start\" xml:space=\"preserve\">##.##</text></g><text x=\"1098\" y=\"374\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">Betriebsart</text><g id=\"VAL_gridops_017\" type=\"svg-ext-value\" text-anchor=\"start\" font-family=\"sans-serif\" font-size=\"17\" fill=\"none\" stroke-width=\"0\"><text id=\"VAL_gridops_text_017\" x=\"1098\" y=\"398\" font-family=\"sans-serif\" font-size=\"17\" fill=\"#e8e8f0\" font-weight=\"bold\" text-anchor=\"start\" xml:space=\"preserve\">##.##</text></g><text x=\"1098\" y=\"440\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">Leitstelle besetzt</text><text x=\"1098\" y=\"462\" font-family=\"sans-serif\" font-size=\"13\" fill=\"#e8e8f0\" text-anchor=\"start\" font-weight=\"bold\" xml:space=\"preserve\">SCHICHT B</text><line x1=\"0\" y1=\"714\" x2=\"1280\" y2=\"714\" stroke=\"#1d3a5a\" stroke-width=\"1\"/><text x=\"28\" y=\"740\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"start\" font-weight=\"normal\" xml:space=\"preserve\">FUXA 1.3.0  &#183;  project: gridops-dispatch  &#183;  server scripts: 2</text><text x=\"1252\" y=\"740\" font-family=\"sans-serif\" font-size=\"11\" fill=\"#8a90b0\" text-anchor=\"end\" font-weight=\"normal\" xml:space=\"preserve\">Zutritt nur fuer autorisiertes Betriebspersonal</text></g></svg>"
+   }
+  ],
+  "layout": {
+   "showdev": false,
+   "showhome": true,
+   "header": {
+    "title": "GridOps Load Dispatch",
+    "bkcolor": "#00182eff",
+    "fontcolor": "#e8e8f0"
+   },
+   "navigation": {
+    "mode": "void"
+   },
+   "start": "v_gridops_dispatch"
+  }
+ },
+ "scripts": [
+  {
+   "id": "s_gridops_telemetry",
+   "name": "RefreshDispatchTelemetry",
+   "code": "// Cyclic refresh of the dispatch telemetry (simulated field values).\nvar jitter = function (base, span) { return Math.round((base + (Math.random() - 0.5) * span) * 100) / 100; };\n\n$setTag('GRID_FREQ_HZ', jitter(50.0, 0.06));\n$setTag('BUS_A_KV', jitter(110.2, 0.8));\n$setTag('BUS_B_KV', jitter(16.1, 0.3));\n$setTag('T1_LOAD_MW', jitter(28.0, 3.5));\n$setTag('T2_LOAD_MW', jitter(22.0, 3.0));\n$setTag('FEEDER_01_A', jitter(310, 28));\n$setTag('FEEDER_02_A', jitter(265, 24));\n$setTag('FEEDER_03_A', jitter(140, 18));\n$setTag('INTERTIE_MW', jitter(-14.0, 6.0));\n$setTag('RESERVE_MW', jitter(41.0, 4.0));",
+   "parameters": [],
+   "sync": false,
+   "mode": "SERVER",
+   "scheduling": {
+    "mode": "interval",
+    "interval": 2,
+    "schedules": []
+   }
+  },
+  {
+   "id": "s_gridops_shedding",
+   "name": "LoadSheddingStage1",
+   "code": "// Stage 1 load shedding: trips the lowest priority feeder and logs the action.\n$setTag('CB_204_STATE', 'OPEN');\n$setTag('FEEDER_04_A', 0);\n$setTag('DISPATCH_MODE', 'LOAD SHEDDING');\nreturn 'stage 1 load shedding executed';",
+   "parameters": [],
+   "sync": false,
+   "mode": "SERVER",
+   "scheduling": {
+    "mode": "none",
+    "interval": 0,
+    "schedules": []
+   }
+  }
+ ],
+ "alarms": [],
+ "charts": [],
+ "texts": []
+}

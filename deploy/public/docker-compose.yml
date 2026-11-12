@@ -1,0 +1,93 @@
+# GridOps OT CTF -- run kit.
+#
+# Runs the whole challenge from prebuilt images; no source code required.
+#
+#   docker compose pull
+#   docker compose up -d
+#   # open http://localhost:8100
+#
+# Images default to ghcr.io/sirius-a/hslu-ot-grid-web-ctf. Override the
+# namespace, tag or host ports with an .env file next to this compose (see
+# .env.example) or shell variables. If the images are private, run
+# `docker login ghcr.io` first.
+#
+# The flags live inside the images -- do NOT add FLAG/FLAG2 here. The remaining
+# values are not secret; leave them as-is unless told otherwise.
+
+services:
+  web:
+    image: ${REGISTRY:-ghcr.io/sirius-a/hslu-ot-grid-web-ctf}/web:${VERSION:-1.0}
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-8100}:3000"
+    environment:
+      ADMIN_USER: "${ADMIN_USER:-ot.supervisor}"
+      # Left blank on purpose: the portal generates a random supervisor password
+      # per deployment and hands it to the bot over the shared volume below, so
+      # it never appears in this file. Pin a value here only for debugging.
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD:-}"
+      BOT_TOKEN: "${BOT_TOKEN:-4f1c0a9d2b8e47d6}"
+      MAX_LABEL_LENGTH: "${MAX_LABEL_LENGTH:--1}"
+      REVIEW_COOLDOWN_SECONDS: "${REVIEW_COOLDOWN_SECONDS:-15}"
+      SESSION_TTL_MINUTES: "${SESSION_TTL_MINUTES:-30}"
+      COLLECTOR_HINT: "http://collector:8080"
+      COLLECTOR_PUBLIC: "http://localhost:${COLLECTOR_PORT:-8200}"
+      STAGE2_ENABLED: "true"
+      SCADA_URL: "http://localhost:${SCADA_PORT:-8300}"
+      SCADA_INTERNAL_URL: "http://scada-gate:8080"
+    volumes:
+      - gridops_secret:/handshake
+
+  scada:
+    image: ${REGISTRY:-ghcr.io/sirius-a/hslu-ot-grid-web-ctf}/scada:${VERSION:-1.0}
+    restart: unless-stopped
+    # No host port: the dispatch console is reachable only through scada-gate.
+    expose:
+      - "1881"
+
+  scada-gate:
+    image: ${REGISTRY:-ghcr.io/sirius-a/hslu-ot-grid-web-ctf}/scada-gate:${VERSION:-1.0}
+    restart: unless-stopped
+    depends_on:
+      - web
+      - scada
+    ports:
+      - "${SCADA_PORT:-8300}:8080"
+    environment:
+      SCADA_TARGET: "http://scada:1881"
+      PORTAL_URL: "http://web:3000"
+      PORTAL_PUBLIC_URL: "http://localhost:${WEB_PORT:-8100}"
+
+  bot:
+    image: ${REGISTRY:-ghcr.io/sirius-a/hslu-ot-grid-web-ctf}/bot:${VERSION:-1.0}
+    restart: unless-stopped
+    depends_on:
+      - web
+    # Public resolver so the review bot can reach a chosen out-of-band host.
+    # The bundled collector works without this.
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    environment:
+      WEB_URL: "http://web:3000"
+      BOT_TOKEN: "${BOT_TOKEN:-4f1c0a9d2b8e47d6}"
+      ADMIN_USER: "${ADMIN_USER:-ot.supervisor}"
+      # No ADMIN_PASSWORD: the bot reads the per-deployment password from the
+      # shared volume the portal writes.
+      PAGE_DWELL_MS: "${PAGE_DWELL_MS:-6000}"
+    volumes:
+      - gridops_secret:/handshake:ro
+
+  collector:
+    image: ${REGISTRY:-ghcr.io/sirius-a/hslu-ot-grid-web-ctf}/collector:${VERSION:-1.0}
+    restart: unless-stopped
+    ports:
+      - "${COLLECTOR_PORT:-8200}:8080"
+    networks:
+      default:
+        aliases:
+          - c
+
+volumes:
+  # Private channel for the randomised supervisor password (portal -> bot).
+  gridops_secret:

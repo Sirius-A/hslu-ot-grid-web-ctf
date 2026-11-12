@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GridOps Regional Asset Portal</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Regional OT asset register and supervisor validation workflow." />
+  <meta name="generator" content="Siemens Element 49.16.0" />
+  <script>
+    /*
+     * Apply the stored appearance before the first paint so the app does not
+     * flash the wrong color scheme. AppearanceService keeps SiThemeService in
+     * sync once Angular has booted. Dark is the default.
+     */
+    (function () {
+      var dark = true;
+      try {
+        dark = localStorage.getItem('gridops-appearance') !== 'light';
+      } catch (e) {
+        /* storage blocked -- keep the default */
+      }
+      document.documentElement.classList.toggle('app--dark', dark);
+    })();
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

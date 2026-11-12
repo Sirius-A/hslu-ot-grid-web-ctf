@@ -1,0 +1,1 @@
+{"version":8,"name":"gridops-offline","sources":{"world":{"type":"geojson","data":"/assets/world.geojson"}},"layers":[{"id":"background","type":"background","paint":{"background-color":"#000a28"}},{"id":"landmass","type":"fill","source":"world","paint":{"fill-color":"#1b2b4d"}},{"id":"borders","type":"line","source":"world","paint":{"line-color":"#00a3ab","line-width":0.7}}]}

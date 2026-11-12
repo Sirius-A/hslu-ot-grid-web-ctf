@@ -1,61 +1,54 @@
 # GridOps — OT / critical-infrastructure CTF
 
+A 
+
 GridOps is the asset portal of a regional electricity grid operator: substations,
 RTUs and PLCs, all on one tidy map, run by a company that is *very* confident its
 operations are airtight.
 
-> **"Zero trust. Zero downtime. Zero incidents reported."**
+> About-page motto: **"Zero trust. Zero downtime. Zero incidents reported."**
 > Your job is to put an asterisk on at least one of those.
 
-The whole challenge runs locally from prebuilt container images — no source code,
-no build step, no internet access needed once the images are pulled.
+Everything runs locally — no internet access needed.
 
-## Requirements
-
-- **Docker Engine** with the **Compose v2** plugin (the `docker compose`
-  command). Docker Desktop includes it.
-- A few GB of free disk for the images (one of them is large).
-
-## Run it
-
-From the folder containing `docker-compose.yml`:
+## Run it locally
 
 ```bash
-docker compose pull      # fetch the images
-docker compose up -d     # start the stack
+docker compose up -d --build
 ```
 
-Then open the portal:
+**Entry point: http://localhost:8100** — start here. A few supporting containers
+come up alongside the portal; you only need the portal to begin.
 
-**→ http://localhost:8100**
+State is kept in memory, so `docker compose restart web` gives you a clean slate.
 
-That is your entry point. A few supporting containers start alongside it; you
-only need the portal to begin.
+### One isolated instance per student
 
-Give it a few seconds on first start — the containers need a moment to come up.
-
-Your end goal is to find the super secret emergency dispatch key (`/opt/gridops/emergency-dispatch-key.txt`).
-
-
-## Stop, reset, clean up
+`ctf.sh` offsets ports and the compose project name so several instances coexist
+on one host:
 
 ```bash
-docker compose restart web   # reset the challenge to a clean state
-docker compose stop          # stop, keep everything
-docker compose down          # stop and remove the containers
-docker compose logs -f web   # watch the portal's logs
+./ctf.sh up 07        # portal :8107, project hslu-ot-ctf-07
+./ctf.sh logs 07
+./ctf.sh down 07
 ```
 
-Challenge state is kept in memory, so `restart web` is the quick way back to a
-fresh start.
+## For instructors (contains spoilers)
 
-## Options
+Design, solutions and distribution — **don't open these if you plan to solve the
+challenge yourself**:
 
-The compose ships with sensible defaults; you don't need to configure anything.
-To change the image source, tag, or host ports, copy `.env.example` to `.env`
-and uncomment what you want to override.
+| Document | For |
+|----------|-----|
+| [`docs/DESIGN.md`](docs/DESIGN.md) | How the lab is built, the vulnerabilities, env/difficulty knobs |
+| [`solution/WALKTHROUGH.md`](solution/WALKTHROUGH.md) | Step-by-step solve |
+| [`solution/SOLUTION.md`](solution/SOLUTION.md) | Teaching notes and root-cause analysis |
+| [`deploy/README.md`](deploy/README.md) | Publish images to GHCR and hand students a pull-only compose |
+
+Health check (confirms an instance is solvable end to end):
+`cd solution && ./exploit.py && ./exploit_stage2.py`.
 
 ## Safety
 
-This is deliberately vulnerable software built for training. Run it on a local
-machine or an isolated lab network only — **never expose it to the internet.**
+Deliberately vulnerable software. Run it on a local machine or an isolated lab
+network only — never expose it to the internet.

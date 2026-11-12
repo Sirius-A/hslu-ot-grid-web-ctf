@@ -1,0 +1,86 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "gridops": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": {
+              "base": "dist",
+              "browser": "browser"
+            },
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js",
+              "@angular/localize/init"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@siemens/element-ng/assets",
+                "output": "assets"
+              }
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            },
+            "styles": [
+              "node_modules/@siemens/element-icons/dist/style/siemens-element-icons.css",
+              "node_modules/ol/ol.css",
+              "src/styles.scss"
+            ],
+            "define": {
+              "ngDevMode": "false"
+            }
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "8mb",
+                  "maximumError": "16mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "20kb",
+                  "maximumError": "80kb"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "options": {
+            "buildTarget": "gridops:build:development",
+            "port": 4200
+          }
+        }
+      }
+    }
+  }
+}

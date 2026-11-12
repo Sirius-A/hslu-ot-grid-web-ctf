@@ -1,0 +1,11 @@
+{
+  "name": "gridops-scada-gate",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": { "start": "node index.js" },
+  "dependencies": {
+    "http-proxy": "1.18.1"
+  }
+}

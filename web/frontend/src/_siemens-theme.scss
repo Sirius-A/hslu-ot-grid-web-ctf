@@ -1,0 +1,250 @@
+////
+/// Siemens colour palette for the GridOps portal.
+///
+/// The open-source `@siemens/element-theme` ships a *placeholder* palette: the
+/// token names are the Siemens ones (petrol, bold green, deep blue, interactive
+/// coral, sand) but the values are generic violets and greys -- the Element docs
+/// state that the default theme is not part of the Siemens branding, and the
+/// Siemens corporate brand theme is reserved for official Siemens products.
+///
+/// This file puts the published Siemens colours back behind those names. The
+/// values are taken from the Siemens Element data-visualisation reference
+/// palette (`si.ref.color.data.*`), which is public. The deep-blue surface ramp
+/// used for the dark background is derived from Siemens Deep Blue #000028.
+////
+
+// stylelint-disable color-no-hex
+
+/* ------------------------------------------------- Siemens base palette */
+
+// Brand
+$petrol: #009999; // si.ref.color.data.brand.petrol
+$light-petrol: #00c1b6; // si.ref.color.data.brand.light-petrol
+$bold-green: #00ffb9; // si.ref.color.data.brand.bold-green
+
+// Interactive coral (Siemens naming -- it is a teal)
+$coral-100: #ccf5f5;
+$coral-200: #66e0e0;
+$coral-400: #00cccc;
+$coral-500: #00a3ab;
+$coral-700: #007082;
+$coral-900: #002949;
+
+// Turquoise
+$turquoise-400: #00d7a0;
+$turquoise-900: #005159;
+
+// Deep blue
+$deep-blue-100: #e5e5e9;
+$deep-blue-200: #ccccd4;
+$deep-blue-400: #9999a9;
+$deep-blue-500: #7d8099;
+$deep-blue-700: #4c4c68;
+$deep-blue-900: #262648;
+
+// Deep blue surface ramp for the dark scheme, derived from Siemens Deep Blue.
+$ink: #000028;
+$ink-1: #15152e;
+$ink-2: #1f1f3d;
+$ink-3: #33334f;
+
+// Sand
+$light-sand: #f3f3f0;
+$sand-100: #efefec;
+
+// Status
+$royal-blue-100: #b2e0ff;
+$royal-blue-400: #6895f6;
+$royal-blue-500: #3664c6;
+$royal-blue-700: #00237a;
+$royal-blue-900: #00004a;
+
+$green-100: #ccf7de;
+$green-400: #01d65a;
+$green-700: #00890e;
+$green-900: #005700;
+
+$yellow-100: #fff7d6;
+$yellow-400: #ffd732;
+$yellow-900: #805800;
+
+$orange-100: #ffdeb2;
+$orange-400: #ff9000;
+$orange-500: #e57700;
+$orange-700: #be5925;
+$orange-900: #801100;
+
+$red-100: #fcccd7;
+$red-200: #ffa8b3;
+$red-500: #ff2640;
+$red-700: #d72339;
+$red-900: #990000;
+
+$orchid-100: #edd6f2;
+$orchid-500: #a733bc;
+$orchid-700: #740089;
+
+$white: #ffffff;
+
+/* -------------------------------------------------------- light scheme */
+
+$light: (
+  element-company-name: "'Regional Grid North'",
+
+  element-ui-0: $petrol,
+  element-ui-0-hover: $coral-700,
+  element-ui-1: $deep-blue-900,
+  element-ui-2: $deep-blue-700,
+  element-ui-3: $deep-blue-400,
+  element-ui-4: $deep-blue-100,
+
+  element-base-0: $light-sand,
+  element-base-1: $white,
+  element-base-1-hover: $light-sand,
+  element-base-1-selected: $deep-blue-100,
+  element-base-2: $white,
+  element-base-3: $white,
+  element-base-4: $sand-100,
+  element-base-information: $royal-blue-100,
+  element-base-success: $green-100,
+  element-base-caution: $yellow-100,
+  element-base-warning: $orange-100,
+  element-base-danger: $red-100,
+  element-base-critical: $orchid-100,
+  element-base-translucent-2: rgba($ink, 0.88),
+
+  // Pure petrol carries white text at only 3.5:1, so anything with a label on
+  // it uses the darker accessible petrol. $petrol stays for accents and borders.
+  element-action-primary: $coral-700,
+  element-action-primary-hover: $turquoise-900,
+  element-action-primary-text: $white,
+  element-action-secondary-hover: $coral-100,
+  element-action-secondary-text: $coral-700,
+  element-action-secondary-text-hover: $turquoise-900,
+  element-action-secondary-border: $petrol,
+  element-action-secondary-border-hover: $coral-700,
+  element-action-secondary-warning: $orange-900,
+  element-action-secondary-danger: $red-700,
+  element-action-warning: $orange-700,
+  element-action-warning-hover: $orange-900,
+  element-action-danger: $red-700,
+  element-action-danger-hover: $red-900,
+
+  element-text-primary: $deep-blue-900,
+  element-text-secondary: $deep-blue-700,
+  element-text-disabled: $deep-blue-500,
+  element-text-active: $coral-700,
+  element-text-information: $royal-blue-700,
+  element-text-success: $green-900,
+  element-text-caution: $yellow-900,
+  element-text-warning: $orange-900,
+  element-text-danger: $red-900,
+  element-text-critical: $orchid-700,
+
+  element-status-information: $royal-blue-500,
+  element-status-information-contrast: $white,
+  element-status-success: $green-700,
+  element-status-success-contrast: $white,
+  element-status-caution: $yellow-400,
+  element-status-caution-contrast: $deep-blue-900,
+  element-status-warning: $orange-500,
+  element-status-warning-contrast: $deep-blue-900,
+  element-status-danger: $red-500,
+  element-status-danger-contrast: $white,
+  element-status-critical: $orchid-500,
+  element-status-critical-contrast: $white,
+
+  element-focus-default: $coral-500,
+
+  element-launchpad-app-background: $coral-100,
+  element-launchpad-app-color: $deep-blue-900
+);
+
+/* --------------------------------------------------------- dark scheme */
+
+$dark: (
+  element-ui-0: $coral-400,
+  element-ui-0-hover: $bold-green,
+  element-ui-1: $white,
+  element-ui-2: $deep-blue-400,
+  element-ui-3: $deep-blue-700,
+  element-ui-4: $ink-3,
+  element-ui-5: $ink-1,
+
+  element-base-0: $ink,
+  element-base-1: $ink-1,
+  element-base-1-hover: $ink-2,
+  element-base-1-selected: $deep-blue-900,
+  element-base-2: $ink,
+  element-base-3: $ink-2,
+  element-base-4: $deep-blue-900,
+  element-base-information: $royal-blue-900,
+  element-base-success: $green-900,
+  element-base-caution: $yellow-900,
+  element-base-warning: $orange-900,
+  element-base-danger: $red-900,
+  element-base-critical: $orchid-700,
+  element-base-translucent-1: rgba($ink, 0.7),
+  element-base-input-experimental: $deep-blue-900,
+
+  element-action-primary: $coral-400,
+  element-action-primary-hover: $bold-green,
+  element-action-primary-text: $ink,
+  element-action-secondary-hover: $coral-900,
+  element-action-secondary-text: $coral-400,
+  element-action-secondary-text-hover: $bold-green,
+  element-action-secondary-border: $coral-400,
+  element-action-secondary-border-hover: $bold-green,
+  element-action-secondary-warning: $orange-400,
+  element-action-secondary-danger: $red-200,
+  element-action-warning: $orange-400,
+  element-action-warning-hover: $orange-500,
+  element-action-warning-text: $ink,
+  element-action-danger: $red-500,
+  element-action-danger-hover: $red-700,
+  element-action-danger-text: $white,
+
+  element-text-primary: $white,
+  element-text-secondary: $deep-blue-200,
+  element-text-disabled: $deep-blue-500,
+  element-text-inverse: $ink,
+  element-text-active: $coral-400,
+  element-text-information: $royal-blue-100,
+  element-text-success: $green-100,
+  element-text-caution: $yellow-100,
+  element-text-warning: $orange-100,
+  element-text-danger: $red-100,
+  element-text-critical: $orchid-100,
+
+  element-status-information: $royal-blue-400,
+  element-status-information-contrast: $ink,
+  element-status-success: $green-400,
+  element-status-success-contrast: $ink,
+  element-status-caution: $yellow-400,
+  element-status-caution-contrast: $ink,
+  element-status-warning: $orange-400,
+  element-status-warning-contrast: $ink,
+  element-status-danger: $red-500,
+  element-status-danger-contrast: $white,
+  element-status-critical: $orchid-500,
+  element-status-critical-contrast: $white,
+
+  element-focus-default: $bold-green,
+
+  element-launchpad-app-background: $coral-900,
+  element-launchpad-app-color: $white
+);
+
+/* ------------------------------------------------------------- emit it */
+
+:root {
+  @each $token, $value in $light {
+    --#{$token}: #{$value};
+  }
+}
+
+:root.app--dark {
+  @each $token, $value in $dark {
+    --#{$token}: #{$value};
+  }
+}
